@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dad</title>
+	<style>
+		body {
+			background-color: white;
+			color: black;
+			font-size: 36px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		#dad {
+			opacity: 0;
+			animation: fadeIn 2s 0.75s forwards;
+		}
+
+		#continue-btn {
+			opacity: 0;
+			animation: fadeIn 2s 3s forwards;
+			margin-top: 20px;
+			padding: 10px 20px;
+			border: none;
+			background-color: black;
+			color: white;
+			font-size: 20px;
+			cursor: pointer;
+		}
+
+		#new-text-1-container {
+			opacity: 0;
+			animation: none;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			text-align: center;
+			width: 100%;
+			display: none;
+		}
+
+		#new-text-2 {
+			opacity: 0;
+			animation: none;
+			margin-top: 20px;
+			display: none;
+		}
+
+		@keyframes fadeIn {
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeOut {
+			from {
+				opacity: 1;
+			}
+			to {
+				opacity: 0;
+			}
+		}
+	</style>
+	<script>
+		function handleButtonClick() {
+			// Fade out the existing elements
+			document.querySelector('#dad').style.animation = 'fadeOut 2s forwards';
+			document.querySelector('#continue-btn').style.animation = 'fadeOut 2s forwards';
+
+			// Fade in the new elements after a delay
+			setTimeout(() => {
+				document.querySelector('#new-text-1-container').style.animation = 'fadeIn 2s forwards';
+				document.querySelector('#new-text-1-container').style.display = 'block';
+				setTimeout(() => {
+					document.querySelector('#new-text-2').style.animation = 'fadeIn 2s forwards';
+					document.querySelector('#new-text-2').style.display = 'block';
+				}, 1350);
+			}, 3250);
+		}
+	</script>
+</head>
+<body>
+	<h1 id="dad">Dad</h1>
+	<button id="continue-btn" onclick="handleButtonClick()">Continue</button>
+	<div id="new-text-1-container">
+		<p id="new-text-1">I literally made this in less than 20 minutes with chat gpt</p>
+	</div>
+	<p id="new-text-2">(wow)</p>
+</body>
+</html>
